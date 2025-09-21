@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <STYLE>
+        body{
+            display:flex;
+            justify-content:space-evenly;
+        }
+        *{
+            font-family:monospace;
+            background-color: black;
+        }
+        button{
+            border:0;
+            border-radius:50%;
+            height:80px;
+            width:80px;
+            color:rgb(49,47,47);
+            background-color: rgb(255, 255, 255);
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-size: 30px;
+        }
+        div{
+            display:flex;
+            flex-wrap: wrap;
+            background-color: rgb(117, 112, 112);
+            width:380px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            margin-top:40px
+        }
+        #display{
+          min-width:320px;
+          height:100px;
+          background-color:rgb(255, 255, 255);
+          color:rgb(49, 47, 47);
+          margin:20px;
+          font-size: 50px;
+          border-radius: 10px;
+          outline:none;
+          border:0;
+          display:flex;
+          flex-direction: row-reverse;
+          align-items: center;
+          padding:10px;
+          flex-wrap: wrap;
+        }
+        #hi{
+            background-color: orange;
+            margin-right: 0;
+        }
+        #hi:hover{
+            background-color: rgb(246, 186, 73);
+        }
+        button:hover{
+            background-color: rgb(82, 77, 77); 
+        }
+    </STYLE>
+</head>
+<body>
+    <div>
+        <p id="display">0</p>
+        <button id="">AC</button>
+        <button id="">+/-</button>
+        <button id="">%</button>
+        <button id="hi">/</button>
+        <button id="">7</button>
+        <button id="">8</button>
+        <button id="">9</button>
+        <button id="hi">*</button>
+        <button id="">4</button>
+        <button id="">5</button>
+        <button id="">6</button>
+        <button id="hi">-</button>
+        <button id="">1</button>
+        <button id="">2</button>
+        <button id="">3</button>
+        <button id="hi">+</button>
+        <button id=""></button>
+        <button id="">0</button>
+        <button id="">.</button>
+        <button id="hi">=</button>
+   
+    </div>
+    <script>
+        let display=document.querySelector("#display");
+let button=document.querySelectorAll("button");
+let str="",c=0;
+button.forEach((element)=>{
+  element.addEventListener('click',()=>{
+    if(element.innerText==="AC"){
+      str="0";
+      display.innerText=str;
+    }
+    else if(element.innerText==="="){
+        calculate();
+        c=1;
+    }
+    else{   if(c==1){
+      if(element.innerText!=="+"&&element.innerText!=="-"&&element.innerText!=="/"&&element.innerText!=="*"){
+      str=element.innerText;
+      }else{
+        str= eval(str);
+        str+=element.innerText;
+      }
+      c=0;
+    }
+     else{
+      str+=element.innerText;
+    } 
+    display.innerText=str;
+    }
+  })
+})
+function calculate(){
+    try{
+        let result= eval(str);
+        display.innerText=result;
+    }
+    catch(error){
+        display.innerText="Error"
+    }
+}
+    </script>
+</body>
+</html>

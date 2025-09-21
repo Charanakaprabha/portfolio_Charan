@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bheesetty Charan Sai Prabha Kumar | Portfolio</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:wght@700;500;400&display=swap"/>
+  <style>
+    :root {
+      --dark-bg: #23293b;
+      --card-bg: #292f43;
+      --light-bg: #eef1fa;
+      --accent: #fec12f;
+      --text: #f3f4f6;
+      --muted: #a9afc3;
+      --content-max: 1070px;
+      --transition: 0.4s cubic-bezier(.6, .04, .56, 1);
+    }
+    html, body { height:100%; margin:0; padding:0; background:var(--dark-bg); color:var(--text); font-family:'Montserrat', Arial, sans-serif; }
+    body {
+      min-height: 100vh;
+      background: linear-gradient(120deg,#181e2a 70%,#313749 100%);
+      overflow-x: hidden;
+    }
+    .wrapper {
+      max-width: var(--content-max);
+      margin: 0 auto;
+      padding: 28px 14px 70px 14px;
+    }
+    header {
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:36px;
+      padding-bottom:38px;
+      border-bottom:1px solid #363e57;
+      position: relative;
+    }
+    .profile-img {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  border: 5px solid var(--accent);
+  object-fit: cover;
+  object-position: center 30%; /* Adjusts focus to upper center (face) */
+  box-shadow: 0 7px 32px #11182b80;
+  background: #313749;
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+
+    .profile-img:hover {
+      border-color: #fff;
+      box-shadow: 0 11px 48px #fec12f33, 0 0 34px #181e2a40;
+    }
+    .intro {
+      flex:1 1 270px;
+    }
+    .intro h1 {
+      font-size: 2.85rem;
+      font-weight: 700;
+      letter-spacing: -2px;
+      margin-bottom: 8px;
+    }
+    .intro .subtitle {
+      font-size: 1.22rem;
+      color: var(--accent);
+      margin-bottom: 20px;
+      font-weight: 500;
+      line-height: 1.22;
+    }
+    .intro .links {
+      margin-top: 16px;
+    }
+    .intro .links a {
+      color: var(--text);
+      text-decoration: none;
+      margin-right: 20px;
+      font-weight: 500;
+      font-size: 1.05rem;
+      border-bottom: 2.5px solid transparent;
+      transition: border-color .23s;
+    }
+    .intro .links a:hover { border-color: var(--accent);}
+    nav.menu {
+      margin-left:auto;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    nav.menu a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 4px 8px;
+      border-radius: 6px;
+      transition: all 0.25s;
+    }
+    nav.menu a.active,
+    nav.menu a:hover {
+      color: var(--accent);
+      background: #30374f;
+    }
+    main {
+      margin-top: 42px;
+      display: flex;
+      flex-direction: column;
+      gap:36px;
+      animation: fadeIn .8s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(22px);}
+      to { opacity: 1; transform: none;}
+    }
+    section {
+      background: var(--card-bg);
+      border-radius: 2rem;
+      box-shadow: 0 4px 38px #181e2a21;
+      padding:40px 32px 38px 32px;
+      margin-bottom:14px;
+      transition: box-shadow var(--transition),transform var(--transition);
+      position:relative;
+      overflow:hidden;
+    }
+    section:hover {
+      box-shadow: 0 14px 40px #fec12f34;
+      transform: translateY(-2.5px) scale(1.012);
+    }
+    .section-title {
+      color: var(--accent);
+      font-size: 1.19rem;
+      letter-spacing: .7px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom:20px;
+      letter-spacing:1.5px;
+    }
+    .about-content {
+      color: var(--muted);
+      margin-bottom: 16px;
+      font-size: 1.12rem;
+    }
+    .stats {
+      display: flex;
+      gap:48px;
+      margin-bottom:22px;
+      flex-wrap:wrap;
+    }
+    .stat-card {
+      background: #191e2a;
+      color: var(--accent);
+      border-radius:14px;
+      flex:1 1 120px;
+      min-width:110px;
+      text-align:center;
+      font-size:1.15rem;
+      font-weight:600;
+      padding:14px 0 10px 0;
+      margin-top:11px;
+    }
+    .edu-list {
+      margin-left: 11px;
+      color: var(--text);
+      font-size: 1.07rem;
+      margin-bottom: 0.98rem;
+      line-height: 1.67;
+    }
+    .projects-list {
+      display:flex;
+      flex-wrap: wrap;
+      gap:20px;
+    }
+    .project-card {
+      flex:1 1 206px;
+      min-width: 220px;
+      background: #181e2a;
+      border: 3px solid transparent;
+      border-radius:20px;
+      min-height:185px;
+      box-shadow: 0 3px 14px #181e2a40;
+      padding:20px 17px 15px 17px;
+      display:flex; flex-direction:column; justify-content:space-between;
+      transition: border-color var(--transition),box-shadow var(--transition), transform var(--transition);
+      position:relative;
+      z-index:10;
+    }
+    .project-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 11px 34px #fec12f42;
+      transform: translateY(-8px) scale(1.04) rotate(-1deg);
+    }
+    .project-card h3 {
+      color: var(--accent);
+      font-size: 1.04rem;
+      font-weight: bold;
+      margin-bottom: .62rem;
+    }
+    .project-card p {
+      color: var(--muted);
+      font-size:.98rem;
+      margin-bottom:0.55rem;
+    }
+    .project-card a {
+      align-self: flex-start;
+      margin-top:auto;
+      padding:5px 16px;
+      border-radius: 17px;
+      background: var(--accent);
+      color: #181e2a;
+      font-weight:700;
+      text-decoration:none;
+      font-size: .98rem;
+      letter-spacing:.5px;
+      transition: background 0.22s,color 0.22s;
+    }
+    .project-card a:hover {
+      background: #fff08d;
+      color: #292f43;
+    }
+    /* crazy animation accents */
+    .accent-blob {
+      content:"";
+      position:absolute;
+      right: -60px;
+      bottom: -60px;
+      width:170px;
+      height: 170px;
+      background: radial-gradient(ellipse 50% 43% at 60% 60%, #fec12f88 0%, #fbebaa00 100%);
+      border-radius: 80% 60% 74% 45%;
+      filter: blur(10px);
+      z-index: 1;
+      animation: morph 7s infinite alternate ease-in-out;
+    }
+    @keyframes morph {
+      0% { border-radius: 54% 50% 54% 60%;}
+      100% { border-radius: 40% 72% 61% 53%;}
+    }
+    .contact-links{
+      display:flex; gap:2rem; justify-content:center; align-items:center; flex-wrap:wrap; margin-top:16px;
+    }
+    .contact-links a {
+      padding:10px 26px;
+      border-radius: 17px;
+      font-size:1.1rem;
+      color: #fff;
+      background: var(--accent);
+      text-decoration:none;
+      font-weight:700; margin-top:7px; box-shadow:0px 3px 18px #ecd58933;
+      transition: background 0.18s, color 0.18s;
+    }
+    .contact-links a:hover {background: #fff08d; color: #292f43;}
+    /* Responsive */
+    @media (max-width: 930px) {
+      header { flex-direction:column; gap:18px;}
+      .profile-img { width:120px; height:120px;}
+      .intro h1{font-size:2.15rem;}
+      .intro .subtitle{font-size:1.05rem;}
+      .wrapper{padding:14px 2vw;}
+    }
+    @media (max-width: 700px) {
+      section{padding:20px 12px;}
+      .projects-list{flex-direction:column;}
+      .stat-card{padding:10px 0;}
+      .wrapper{padding:12px 0;}
+    }
+    @media (max-width: 430px) {
+      .intro h1{font-size:1.5rem;}
+      .section-title{font-size:0.99rem;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <img src="assets/profile.jpg" alt="Profile photo" class="profile-img" />
+      <div class="intro">
+        <h1>Bheesetty Charan Sai<br/>Prabha Kumar</h1>
+        <div class="subtitle">
+          B.Tech Computer Science | 3rd Year<br/>Vignan Institute of Information Technology
+        </div>
+        <div class="links">
+          <a href="https://www.linkedin.com/in/charansaiprabhakumarbheesetty" target="_blank">LinkedIn</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <nav class="menu">
+        <a href="#about" class="active">About</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Works</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="about">
+        <div class="section-title">Introduction</div>
+        <div class="about-content">
+          Hi 👋, I'm <b>Charan</b> – a focused and creative Computer Science undergrad (CGPA 9.0) with a knack for web projects, game dev, and full stack building.
+          Motivated by a passion for modern tech, I'm eager to bring ideas to life through design, logic, and grit.
+        </div>
+        <div class="stats">
+          <div class="stat-card">
+            <div>9.0</div>
+            <small>CGPA</small>
+          </div>
+          <div class="stat-card">
+            <div>95.3%</div>
+            <small>Intermediate</small>
+          </div>
+          <div class="stat-card">
+            <div>99%</div>
+            <small>School</small>
+          </div>
+        </div>
+        <div class="accent-blob"></div>
+      </section>
+
+      <section id="education">
+        <div class="section-title">Education</div>
+        <div class="edu-list">
+          <b>B.Tech, Computer Science Engineering</b><br/>
+          Vignan Institute of Information Technology<br/>
+          <span>2022 - 2026 (Expected), CGPA: 9.0</span><br/><br/>
+          <b>Intermediate (Class XII)</b><br/>
+          Sri Chaitanya Jr College<br/>
+          <span>2020 – 2022, 95.3%</span><br/><br/>
+          <b>10th (SSC)</b><br/>
+          Bhashyam Public School<br/>
+          <span>2019-2020, 99%</span>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="section-title">Projects</div>
+        <div class="projects-list">
+          <div class="project-card">
+             <h3>Cargomate</h3>
+             <p>End-to-end cargo management and delivery matching platform.</p>
+             <a href="https://your-deployed-cargomate-url.com" target="_blank" rel="noopener noreferrer">See Project</a>
+          </div>
+          <div class="project-card">
+            <h3>Calculator</h3>
+            <p>Feature-rich calculator for fast, accurate calculations.</p>
+            <a href="projects/Calculator.html" target="_blank">See Project</a>
+          </div>
+          <div class="project-card">
+            <h3>Todo List App</h3>
+            <p>Simple and interactive to-do list for productivity.</p>
+            <a href="projects/Todolist.html" target="_blank">See Project</a>
+          </div>
+          <div class="project-card">
+            <h3>Connect 4 Game</h3>
+            <p>Classic Connect 4 game playable in-browser.</p>
+            <a href="projects/Connect4game.html" target="_blank">See Project</a>
+          </div>
+          <div class="project-card">
+            <h3>E-commerce Demo</h3>
+            <p>Demo e-commerce site with auth & listings.</p>
+            <a href="projects/Ecommerce.html" target="_blank">See Project</a>
+          </div>
+        </div>
+        <div class="accent-blob" style="right:-80px;bottom:-50px;width:120px;height:120px;"></div>
+      </section>
+
+      <section id="contact">
+        <div class="section-title">Contact</div>
+        <div class="contact-links">
+          <a href="mailto:charansaiprabhakumar@gmail.com">Email Me</a>
+          <a href="https://www.linkedin.com/in/charansaiprabhakumarbheesetty" target="_blank">LinkedIn</a>
+        </div>
+        <div style="margin-top:16px;font-size:1.05rem;color:var(--muted);text-align:center;">
+          Open to discussions, project collaborations and innovative tech talks!
+        </div>
+        <div class="accent-blob" style="left:-80px;top:24px;width:110px;height:110px;"></div>
+      </section>
+    </main>
+  </div>
+  <script>
+    // Simple animation on scroll for sections
+    document.querySelectorAll('section').forEach((s, i) => {
+      s.style.opacity = 0; s.style.transform = 'translateY(36px)';
+      setTimeout(()=>{
+        s.style.transition = 'opacity .7s, transform .6s';
+        s.style.opacity = 1; s.style.transform = 'none';
+      }, 450 + i*120);
+    });
+
+    // Animate nav active state based on scroll position
+    const navLinks = document.querySelectorAll('nav.menu a');
+    const sections = [...document.querySelectorAll('main section')];
+    window.addEventListener('scroll', () => {
+      let found;
+      const y = window.scrollY;
+      sections.forEach((sec, idx)=>{
+        const top = sec.offsetTop-150;
+        if (y >= top) found = idx;
+      });
+      navLinks.forEach((a, i) => a.classList.toggle('active', i===found));
+    });
+  </script>
+</body>
+</html>
